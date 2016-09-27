@@ -7,5 +7,6 @@ stage('Build') {
     sh 'pwd'
     sh 'ls -aRl'
     sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
+    
   }
 }
