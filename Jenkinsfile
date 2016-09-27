@@ -8,6 +8,6 @@ stage('Build') {
     // sh 'sudo chef-client --local-mode --runlist \'recipe[webserver::default]\''
     sh 'cd /var/www/html'
     git 'https://github.com/cleahy3/poker-front'
-
+    sh 'ls'
   }
 }
