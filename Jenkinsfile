@@ -7,5 +7,6 @@ stage('Build') {
     //sh 'chef-apply cookbooks/webserver/recipes/default.rb'
     sh 'sudo chef-client --local-mode --runlist \'recipe[webserver::default]\''
     git 'https://github.com/cleahy3/poker-front'
+    
   }
 }
