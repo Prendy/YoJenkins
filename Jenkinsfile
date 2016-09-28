@@ -61,7 +61,7 @@ stage('Deploy') {
       "app" : {
 
           node('prendy-app-prod') {
-
+            slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe deploying app', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
             sh 'curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk -c stable -v 0.16.28'
@@ -69,6 +69,7 @@ stage('Deploy') {
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
             sh 'rm -rf /var/www/html'
             sh 'git clone https://github.com/cleahy3/poker-front /var/www/html'
+            slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed app', teamDomain: 'spartaglobal'
           }
 
       },
@@ -76,7 +77,7 @@ stage('Deploy') {
       "api" : {
 
           node('prendy-api-prod') {
-
+            slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe deploying API', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
             sh 'curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk -c stable -v 0.16.28'
@@ -86,7 +87,7 @@ stage('Deploy') {
             sh 'git clone -b dev https://github.com/farrakhb/pokerMVC /var/www/html'
             sh 'pm2 kill'
             sh 'pm2 start /var/www/html/app.js'
-
+            slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed API', teamDomain: 'spartaglobal'
           }
 
       },
@@ -94,12 +95,14 @@ stage('Deploy') {
       "db" : {
 
           node('prendy-db-prod') {
-
+            slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe deploying DB', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
             sh 'curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk -c stable -v 0.16.28'
             sh 'sudo hostname andrew.dev'
             sh 'sudo chef-client --local-mode --runlist \'recipe[db]\''
+            slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed DB', teamDomain: 'spartaglobal'
+            slackSend channel: '#pokerladz', message: '/giphy test'
           }
 
       }
