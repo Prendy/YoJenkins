@@ -32,7 +32,7 @@ stage('Build') {
             sh 'rm -rf /var/www/html'
             sh 'git clone -b dev https://github.com/farrakhb/pokerMVC /var/www/html'
             sh 'ls -al /var/www/html'
-            sh 'pm2 start var/www/html/app.js'
+            sh 'pm2 start /var/www/html/app.js'
 
           }
 
