@@ -8,7 +8,7 @@ stage('Build') {
     //sh 'chef-apply cookbooks/webserver/recipes/default.rb'
     sh 'sudo hostname andrew.dev'
     sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
-    git 'https://github.com/cleahy3/poker-front'
-    sh 'ls -aRl'
+    sh 'git clone https://github.com/cleahy3/poker-front /var/www/html'
+    sh 'cat /var/www/html/index.html'
   }
 }
