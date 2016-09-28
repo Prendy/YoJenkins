@@ -5,6 +5,7 @@ stage('Build') {
       "app" : {
 
           node('standard') {
+            slackSend '/giphy lol'
             slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
@@ -102,7 +103,7 @@ stage('Deploy') {
             sh 'sudo hostname andrew.dev'
             sh 'sudo chef-client --local-mode --runlist \'recipe[db]\''
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed DB', teamDomain: 'spartaglobal'
-            slackSend channel: '#pokerladz', message: '/giphy test'
+            slackSend '/giphy lol'
           }
 
       }
