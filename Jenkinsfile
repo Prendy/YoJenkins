@@ -5,8 +5,8 @@ stage('Build') {
       "app" : {
 
           node('standard') {
-            slackSend '/giphy lol'
             slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
+            slackSend '/giphy lol'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
             sh 'curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk -c stable -v 0.16.28'
