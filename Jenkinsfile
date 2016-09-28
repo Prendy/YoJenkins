@@ -13,6 +13,7 @@ stage('Build') {
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
             sh 'rm -rf /var/www/html'
             sh 'git clone https://github.com/cleahy3/poker-front /var/www/html'
+            slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
           }
 
       },
