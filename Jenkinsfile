@@ -4,7 +4,7 @@ stage('Build') {
 
       "app" : {
 
-          node('steve') {
+          node('andrew') {
 
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
@@ -19,7 +19,7 @@ stage('Build') {
       },
       "api" : {
 
-          node('steve') {
+          node('andrew') {
 
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'curl -L https://www.opscode.com/chef/install.sh | sudo bash'
