@@ -1,6 +1,6 @@
 stage('Build') {
 
-  parallel {
+  parallel (
 
       "app" : {
 
@@ -34,6 +34,6 @@ stage('Build') {
       }
 
 
-  }
+  )
 
 }
