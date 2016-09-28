@@ -28,7 +28,7 @@ stage('Build') {
             sh 'sudo hostname andrew.dev'
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver::api]\''
             sh 'rm -rf /var/www/html'
-            sh 'git clone -b dev https://github.com/farrakhb/pokerMVC /var/www/html'
+            sh 'git clone https://github.com/farrakhb/pokerMVC /var/www/html'
             sh 'pm2 start /var/www/html/app.js'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built API on test', teamDomain: 'spartaglobal'
           }
@@ -84,7 +84,7 @@ stage('Deploy') {
             sh 'sudo hostname andrew.dev'
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver::api]\''
             sh 'rm -rf /var/www/html'
-            sh 'git clone -b dev https://github.com/farrakhb/pokerMVC /var/www/html'
+            sh 'git clone https://github.com/farrakhb/pokerMVC /var/www/html'
             sh 'pm2 kill'
             sh 'pm2 start /var/www/html/app.js'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed API', teamDomain: 'spartaglobal'
