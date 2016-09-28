@@ -82,6 +82,7 @@ stage('Deploy') {
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver::api]\''
             sh 'rm -rf /var/www/html'
             sh 'git clone -b dev https://github.com/farrakhb/pokerMVC /var/www/html'
+            sh 'pm2 kill'
             sh 'pm2 start /var/www/html/app.js'
 
           }
