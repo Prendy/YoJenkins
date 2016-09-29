@@ -30,6 +30,7 @@ stage('Build') {
             sh 'rm -rf /var/www/html'
             sh 'git clone https://github.com/farrakhb/pokerMVC /var/www/html'
             sh 'pm2 kill'
+            sh 'npm install --prefix /var/www/html -g'
             sh 'pm2 start /var/www/html/app.js'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built API on test', teamDomain: 'spartaglobal'
           }
@@ -87,6 +88,7 @@ stage('Deploy') {
             sh 'rm -rf /var/www/html'
             sh 'git clone https://github.com/farrakhb/pokerMVC /var/www/html'
             sh 'pm2 kill'
+            sh 'npm install --prefix /var/www/html -g'
             sh 'pm2 start /var/www/html/app.js'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed API', teamDomain: 'spartaglobal'
           }
