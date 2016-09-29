@@ -16,7 +16,6 @@ stage('Build') {
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built app on test', teamDomain: 'spartaglobal'
             sh 'rm -rf Poker-Automation-Tests'
             sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
-            sh 'gem install rspec'
             sh 'rspec ./Poker-Automation-Tests'
 
           }
