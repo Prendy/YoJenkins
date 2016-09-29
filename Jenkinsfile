@@ -14,9 +14,9 @@ stage('Build') {
             sh 'rm -rf /var/www/html'
             sh 'git clone https://github.com/cleahy3/poker-front /var/www/html'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built app on test', teamDomain: 'spartaglobal'
-            sh 'rm -rf Poker-Automation-Tests'
-            sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
-            sh 'rspec ./Poker-Automation-Tests'
+            //sh 'rm -rf Poker-Automation-Tests'
+            //sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
+            //sh 'rspec ./Poker-Automation-Tests'
 
           }
 
