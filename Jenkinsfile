@@ -12,7 +12,7 @@ stage('Build') {
             sh 'sudo hostname andrew.dev'
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
             sh 'rm -rf /var/www/html'
-            sh 'git clone https://github.com/cleahy3/poker-front /var/www/html'
+            sh 'git clone -b master https://github.com/cleahy3/poker-front /var/www/html'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built app on test', teamDomain: 'spartaglobal'
             //sh 'rm -rf Poker-Automation-Tests'
             //sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
@@ -74,7 +74,7 @@ stage('Deploy') {
             sh 'sudo hostname andrew.dev'
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
             sh 'rm -rf /var/www/html'
-            sh 'git clone https://github.com/cleahy3/poker-front /var/www/html'
+            sh 'git clone -b master https://github.com/cleahy3/poker-front /var/www/html'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed app', teamDomain: 'spartaglobal'
           }
 
