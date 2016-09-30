@@ -75,6 +75,7 @@ stage('Deploy') {
             sh 'sudo chef-client --local-mode --runlist \'recipe[webserver]\''
             sh 'rm -rf /var/www/html'
             sh 'git clone -b master https://github.com/cleahy3/poker-front /var/www/html'
+            sh 'pm2 kill'
             sh 'npm install --prefix /var/www/html/'
             sh 'pm2 start /var/www/html/index.js'
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully deployed app', teamDomain: 'spartaglobal'
