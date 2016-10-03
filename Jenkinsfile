@@ -6,7 +6,7 @@ stage('Build') {
 
           node('standard') {
             print "this should print = ${Perform_build_phase}"
-            if('${Perform_build_phase}' == true)
+            if('${Perform_build_phase}' === true)
             print "its true"
             else
             print "its false!!"
