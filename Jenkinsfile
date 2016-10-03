@@ -14,6 +14,7 @@ stage('Build') {
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built app on test', teamDomain: 'spartaglobal'
             sh 'rm -rf Poker-Automation-Tests'
             sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
+
             dir ('/root/Poker-Automation-Tests') {
 
             sh 'sudo apt-get update'
@@ -32,9 +33,8 @@ stage('Build') {
             sh 'sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver'
             sh 'sudo apt-get install -y python-pip'
             sh 'pip install pyvirtualdisplay selenium'
-            sh 'rspec'
             }
-
+            sh 'rspec ./Poker-Automation-Tests/'
 
           }
 
