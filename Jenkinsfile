@@ -21,7 +21,7 @@ stage('Build') {
             sh 'sudo apt-get -f -y install'
             sh 'sudo apt-get install -y libxss1 libappindicator1 libindicator7 libasound2 libgconf-2-4 libpango1.0-0 fonts-liberation libcurl3 xdg-utils'
             sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-            sh 'sudo dpkg -i google-chrome*.deb'
+            sh 'set +e && sudo dpkg -i google-chrome*.deb && set -e'
             sh 'sudo apt-get install -f'
             sh 'sudo apt-get install -y xvfb'
             sh 'sudo apt-get install -y unzip'
