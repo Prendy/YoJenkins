@@ -29,8 +29,8 @@ stage('Build') {
             sh 'unzip chromedriver_linux64.zip'
             sh 'chmod +x chromedriver'
             sh 'sudo mv -f chromedriver /usr/local/share/chromedriver'
-            sh 'sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver'
-            sh 'sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver'
+            // sh 'sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver'
+            // sh 'sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver'
             sh 'sudo apt-get install -y python-pip'
             sh 'pip install pyvirtualdisplay selenium'
             }
