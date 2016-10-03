@@ -6,6 +6,12 @@ stage('Build') {
 
           node('standard') {
             print "this should print = ${Perform_build_phase}"
+            if(${Perform_build_phase} == true)
+            print "its true"
+            else
+            print "its false!!"
+
+
             slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'sudo hostname andrew.dev'
