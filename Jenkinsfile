@@ -17,7 +17,7 @@ stage('Build') {
             dir ('/root/Poker-Automation-Tests') {
 
             sh 'sudo apt-get update'
-            sh 'sudo apt-get -f install'
+            sh 'sudo apt-get -f -y install'
             sh 'sudo apt-get install -y libxss1 libappindicator1 libindicator7 libasound2 libgconf-2-4 libpango1.0-0 fonts-liberation libcurl3 xdg-utils'
             sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
             sh 'sudo dpkg -i google-chrome*.deb'
