@@ -11,7 +11,7 @@ stage('Build') {
             else
             print "its false!!"
 
-
+            if("${Perform_build_phase}" == "true")
             slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'sudo hostname andrew.dev'
@@ -21,9 +21,7 @@ stage('Build') {
             slackSend channel: '#pokerladz', color: 'good', message: 'PrendyPipe successfully built app on test', teamDomain: 'spartaglobal'
             sh 'rm -rf Poker-Automation-Tests'
             sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
-
             dir ('/root/Poker-Automation-Tests') {
-
             sh 'sudo apt-get update'
             sh 'sudo apt-get -f -y install'
             sh 'sudo apt-get install -y libxss1 libappindicator1 libindicator7 libasound2 libgconf-2-4 libpango1.0-0 fonts-liberation libcurl3 xdg-utils'
@@ -42,7 +40,8 @@ stage('Build') {
             sh 'pip install pyvirtualdisplay selenium'
             }
             sh 'rspec ./Poker-Automation-Tests/'
-
+            else
+            slackSend channel: '#pokerladz', color: 'good', message: 'only gone and skipped it', teamDomain: 'spartaglobal'
           }
 
       },
