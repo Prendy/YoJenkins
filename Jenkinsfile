@@ -5,7 +5,7 @@ stage('Build') {
       "app" : {
 
           node('standard') {
-            print "this should print ${test}"
+            print "this should print ${Test}"
             slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'sudo hostname andrew.dev'
