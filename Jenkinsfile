@@ -6,12 +6,14 @@ stage('Build') {
 
           node('standard') {
             print "this should print = ${Perform_build_phase}"
-            if("${Perform_build_phase}" == "true")
+            if("${Perform_build_phase}" == "true") {
             print "its true"
-            else
+            }
+            else {
             print "its false!!"
+            }
 
-            if("${Perform_build_phase}" == "true")
+            // if("${Perform_build_phase}" == "true")
             slackSend channel: '#pokerladz', color: 'blue', message: 'PrendyPipe building app on test', teamDomain: 'spartaglobal'
             git 'https://github.com/Prendy/WhatTheDevOps'
             sh 'sudo hostname andrew.dev'
@@ -40,8 +42,8 @@ stage('Build') {
             sh 'pip install pyvirtualdisplay selenium'
             }
             sh 'rspec ./Poker-Automation-Tests/'
-            else
-            slackSend channel: '#pokerladz', color: 'good', message: 'only gone and skipped it', teamDomain: 'spartaglobal'
+            // else
+            // slackSend channel: '#pokerladz', color: 'good', message: 'only gone and skipped it', teamDomain: 'spartaglobal'
           }
 
       },
