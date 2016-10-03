@@ -16,20 +16,20 @@ stage('Build') {
             sh 'git clone https://github.com/johnmetcalfe/Poker-Automation-Tests'
             dir ('/root/Poker-Automation-Tests') {
 
-
-            sh 'sudo apt-get install libxss1 libappindicator1 libindicator7'
+            sh 'sudo apt-get update'
+            sh 'sudo apt-get install -y libxss1 libappindicator1 libindicator7'
             sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
             sh 'sudo dpkg -i google-chrome*.deb'
             sh 'sudo apt-get install -f'
-            sh 'sudo apt-get install xvfb'
-            sh 'sudo apt-get install unzip'
+            sh 'sudo apt-get install -y xvfb'
+            sh 'sudo apt-get install -y unzip'
             sh 'wget -N http://chromedriver.storage.googleapis.com/2.20/chromedriver_linux64.zip'
             sh 'unzip chromedriver_linux64.zip'
             sh 'chmod +x chromedriver'
             sh 'sudo mv -f chromedriver /usr/local/share/chromedriver'
             sh 'sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver'
             sh 'sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver'
-            sh 'sudo apt-get install python-pip'
+            sh 'sudo apt-get install -y python-pip'
             sh 'pip install pyvirtualdisplay selenium'
             sh 'rspec'
             }
